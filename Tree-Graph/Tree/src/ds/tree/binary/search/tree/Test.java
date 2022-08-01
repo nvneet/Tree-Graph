@@ -13,7 +13,13 @@ public class Test {
 		bst.insert(80);
 		bst.insert(100);
 		bst.insert(20);
+		bst.insert(10);
 		bst.insert(40);
+		bst.insert(120);
+		bst.insert(110);
+		
+		System.out.println(bst.rootNode);
+		bst.preOrder(bst.rootNode);
 
 	}
 

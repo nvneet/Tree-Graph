@@ -1,10 +1,6 @@
 package algo.ds.sorting;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
 
 import algo.ds.BinaryHeap;
 
@@ -16,6 +12,7 @@ public class Seven_Heap_Sort {
 		
 		System.out.println("Un-sorted: " + Arrays.toString(nums));
 		HeapSort hs = new HeapSort(nums);
+
 		hs.sort(nums);
 
 		System.out.println("   *** Sorted by HEAP-SORT ***");

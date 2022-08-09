@@ -96,4 +96,39 @@ public class BST {
 		}
 		return null;
 	}
+	
+	// Find Minimum Node in BST
+	private static BSTNode getMinNode(BSTNode rootNode) {
+		if (rootNode.leftNode == null) {
+			return rootNode;
+		}
+		return getMinNode(rootNode.leftNode);
+	}
+	
+	// Delete Node in BST
+	public static BSTNode deleteNode (BSTNode rootNode, int value) {
+		if (rootNode == null) {
+			System.out.println("Value is not found in BST");
+			return null;
+		}
+		if(value < rootNode.value) {
+			rootNode.leftNode = deleteNode(rootNode.leftNode, value);
+		} else if (value > rootNode.value) {
+			rootNode.rightNode = deleteNode(rootNode.rightNode, value);
+		} else {
+			if (rootNode.leftNode != null && rootNode.rightNode != null) {
+				BSTNode temp = rootNode;
+				BSTNode minNodeForRight = getMinNode(temp.rightNode);
+				rootNode.value = minNodeForRight.value;
+				rootNode.rightNode = deleteNode(rootNode.rightNode, minNodeForRight.value);
+			} else if(rootNode.leftNode != null) {
+				rootNode = rootNode.leftNode;
+			} else if (rootNode.rightNode != null) {
+				rootNode = rootNode.rightNode;
+			} else {
+				rootNode = null;
+			}
+		}
+		return rootNode;
+	}
 }
